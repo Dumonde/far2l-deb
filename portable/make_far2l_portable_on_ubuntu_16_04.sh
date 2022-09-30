@@ -4,19 +4,15 @@ cd ~
 rm -rf far2l
 mkdir far2l
 cd far2l
-apt-get install -y libspdlog-dev patchelf wget gawk m4 libx11-dev libxi-dev libxerces-c-dev libuchardet-dev libssh-dev libssl-dev libnfs-dev libneon27-dev libarchive-dev libpcre3-dev cmake g++ git
+apt install -y file patchelf wget gawk m4 libx11-dev libxi-dev libpcre3-dev libxerces-c-dev libspdlog-dev libuchardet-dev libssh-dev libssl-dev libsmbclient-dev libnfs-dev libneon27-dev libarchive-dev cmake g++ git
 git clone https://github.com/elfmz/far2l
 cd far2l
 mkdir build
 cd build
-sudo apt-get install -y software-properties-common
-sudo add-apt-repository -y ppa:george-edison55/cmake-3.x
-sudo apt-get update
-sudo apt-get install -y cmake
 cmake -DUSEWX=no -DLEGACY=no -DCMAKE_BUILD_TYPE=Release ..
 make -j$(nproc --all)
 cd install
-wget https://github.com/unxed/far2l-deb/raw/master/portable/autonomizer.sh
+wget https://github.com/Dumonde/far2l-deb/raw/master/portable/autonomizer.sh
 chmod +x autonomizer.sh
 ./autonomizer.sh
 rm lib/libc.so.6
